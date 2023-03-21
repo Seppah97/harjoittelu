@@ -5,10 +5,16 @@ pipeline {
         pollSCM('* * * * *')
     }
 
+    environment {
+        DB_ENGINE = 'sqlite'
+    }
+
     stages {
         stage('Test') {
             steps {
-                sh 'echo Tämä on testivaihe'
+                echo "Database engine is ${DB_ENGINE}"
+                sh 'printenv'
+
             }
         }
 
