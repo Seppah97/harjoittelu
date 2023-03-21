@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Database engine is ${DB_ENGINE}"
-                sh 'printenv'
+                sh 'pytest'
 
             }
         }
