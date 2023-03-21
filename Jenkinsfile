@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { docker { image 'mcr.microsoft.com/playwright:v1.31.0-focal' } }
 
     triggers {
         pollSCM('* * * * *')
@@ -13,6 +13,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Database engine is ${DB_ENGINE}"
+                sh 'pip install playwright'
+                sh 'playwright install --with-deps'
                 sh 'pytest'
 
             }
