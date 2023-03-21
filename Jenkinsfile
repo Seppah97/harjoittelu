@@ -11,6 +11,12 @@ pipeline {
                 sh 'echo Tämä on testivaihe'
             }
         }
+
+        stage('Deployment') {
+            steps {
+                sh 'echo Tämä on julkaisu'
+            }
+        }
     }
     
     post {
