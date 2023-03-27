@@ -9,4 +9,4 @@ RUN rm -r /root/.cache
 RUN apk add pkgconf
 RUN apk add build-base
 RUN apk add python3-dev
-RUN sudo chmod -R 777 ./
+RUN sudo chmod +x -R ./
