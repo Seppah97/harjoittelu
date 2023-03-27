@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.387.1
+FROM jenkins/jenkins:lts-alpine
 USER root
 RUN apk add --no-cache python3
 RUN python3 -m ensurepip
