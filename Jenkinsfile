@@ -14,6 +14,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo SECRET_INPUT
+                sh "chmod +x -R ${env.WORKSPACE}"
                 sh './test.sh'
             }
         }
