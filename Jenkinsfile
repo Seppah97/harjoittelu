@@ -7,15 +7,13 @@ pipeline {
 
     environment {
         DB_ENGINE = 'sqlite'
+        SECRET_INPUT = credientals('testi_secret')
     }
 
     stages {
         stage('Test') {
             steps {
-                echo "Database engine is ${DB_ENGINE}"
-                sh 'pip install playwright'
-                sh 'playwright install --with-deps'
-                sh 'pytest'
+                
 
             }
         }
