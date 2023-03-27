@@ -14,7 +14,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo SECRET_INPUT
-
+                sh './test.sh'
             }
         }
 
