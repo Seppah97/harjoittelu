@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'mcr.microsoft.com/playwright:v1.31.0-focal' } }
+    agent any
 
     triggers {
         pollSCM('* * * * *')
