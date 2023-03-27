@@ -21,6 +21,7 @@ pipeline {
         stage('Deployment') {
             steps {
                 sh 'echo Tämä on julkaisu'
+                input('Tämä on testi-inputti')
             }
         }
     }
