@@ -7,7 +7,7 @@ pipeline {
 
     environment {
         DB_ENGINE = 'sqlite'
-        SECRET_INPUT = credientals('testi_secret')
+        SECRET_INPUT = credentials('testi_secret')
     }
 
     stages {
