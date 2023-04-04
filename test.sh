@@ -2,3 +2,5 @@
 
 
 echo Hello World
+
+curl http://example.com
