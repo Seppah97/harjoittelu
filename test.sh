@@ -15,4 +15,4 @@ end=`date +%s`
 
 runtime=$((end-start))
 
-printf "\nAll completed!\n\nTime elapsed: %d\n" "${runtime}"
+printf "\nAll completed!\n\nTime elapsed: %d\n" "${start}"
