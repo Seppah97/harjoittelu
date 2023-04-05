@@ -21,6 +21,8 @@ pipeline {
                 echo SECRET_INPUT
                 sh "chmod +x -R ${env.WORKSPACE}"
                 sh './test.sh'
+
+                sh 'python3 test_my_application.py'
             }
         }
 
