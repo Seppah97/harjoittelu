@@ -29,7 +29,11 @@ pipeline {
         stage('Deployment') {
             steps {
                 script {
-                    sh 'echo Tämä on julkaisu'
+                    def inputFile = input message: 'Upload test file', parameters: [file(name: 'test.txt')]
+                    new hudson.FilePath(new File("$workspace/test.txt")).copyFrom(inputFile)
+                    inputFile.delete()
+
+                    archiveArtifacts artifacts: 'test.txt'
                 }
                 
                 input('Tämä on testi-inputti')
