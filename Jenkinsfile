@@ -30,11 +30,11 @@ pipeline {
             steps {
                 script {
                     def fb64 = input message: 'Upload test file', parameters: [base64File('file')]
-                    node {
-                        withEnv(["fb64=$fb64"]) {
-                            sh 'echo $fb64 | base64 -d'
-                        }
+                    
+                    withEnv(["fb64=$fb64"]) {
+                        sh 'echo $fb64 | base64 -d'
                     }
+                
                 }
                 
                 input('Tämä on testi-inputti')
