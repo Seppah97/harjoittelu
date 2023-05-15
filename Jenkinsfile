@@ -29,11 +29,12 @@ pipeline {
         stage('Deployment') {
             steps {
                 script {
-                    def inputFile = input message: 'Upload test file', parameters: [file(name: 'test.txt')]
-                    new hudson.FilePath(new File("$workspace/test.txt")).copyFrom(inputFile)
-                    inputFile.delete()
-
-                    archiveArtifacts artifacts: 'test.txt'
+                    def fb64 = input message: 'Upload test file', parameters: [base64File('file')]
+                    node {
+                        withEnv(["fb64=$fb64"]) {
+                            sh 'echo $fb64 | base64 -d'
+                        }
+                    }
                 }
                 
                 input('Tämä on testi-inputti')
