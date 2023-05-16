@@ -4,7 +4,7 @@ pipeline {
     parameters{
         choice(name: 'Vaihtoehdot', choices: ['Yksi', 'Kaksi', 'Kolme'], description: 'Tämä on vaihtoehtojen testi')
         string(name: 'Nimi', defaultValue: 'Vakionimi', description: 'Aseta tähän nimi')
-        file(name: 'testaus.txt')
+        file(name: 'testaus')
     }
 
     triggers {
@@ -30,7 +30,7 @@ pipeline {
         stage('Deployment') {
             steps {
                 script {
-                     archiveArtifacts artifacts: params.testaus.txt
+                     archiveArtifacts artifacts: params.testaus
                 
                 }
                 
