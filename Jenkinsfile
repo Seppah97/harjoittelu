@@ -30,7 +30,7 @@ pipeline {
         stage('Deployment') {
             steps {
                 script {
-                     archiveArtifacts artifacts: 'testaus.txt'
+                     archiveArtifacts artifacts: params.testaus.txt
                 
                 }
                 
