@@ -30,11 +30,7 @@ pipeline {
         stage('Deployment') {
             steps {
                 script {
-                    def fb64 = input message: 'Upload test file', parameters: [base64File('file')]
-                    
-                    withEnv(["fb64=$fb64"]) {
-                        sh 'echo $fb64 | base64 -d'
-                    }
+                     archiveArtifacts artifacts: 'testaus.txt'
                 
                 }
                 
