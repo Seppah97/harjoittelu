@@ -7,7 +7,7 @@ printf "\nThis is a test, please wait.\n"
 
 start=`date +%s`
 
-sleep 5
+
 
 echo Hello World
 
