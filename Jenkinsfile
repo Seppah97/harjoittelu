@@ -16,6 +16,10 @@ pipeline {
         SECRET_INPUT = credentials('testi_secret')
     }
 
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '5'))
+    }
+
     stages {
         stage('Test') {
             steps {
