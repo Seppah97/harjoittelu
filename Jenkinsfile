@@ -4,7 +4,7 @@ pipeline {
     parameters{
         choice(name: 'Vaihtoehdot', choices: ['Yksi', 'Kaksi', 'Kolme'], description: 'Tämä on vaihtoehtojen testi')
         string(name: 'Nimi', defaultValue: 'Vakionimi', description: 'Aseta tähän nimi')
-        file 'uusi'
+        stashedFile 'uusi'
     }
 
     triggers {
@@ -34,7 +34,7 @@ pipeline {
         stage('Deployment') {
             steps {
                 script {
-                    //unstash 'large.txt'
+                    unstash 'uusi'
                     archiveArtifacts artifacts: 'uusi'
                 
                 }
