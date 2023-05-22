@@ -4,7 +4,7 @@ pipeline {
     parameters{
         choice(name: 'Vaihtoehdot', choices: ['Yksi', 'Kaksi', 'Kolme'], description: 'Tämä on vaihtoehtojen testi')
         string(name: 'Nimi', defaultValue: 'Vakionimi', description: 'Aseta tähän nimi')
-        file(name: 'testi.txt', description: 'Tuote')
+        file(name: 'testi', description: 'Tuote')
     }
 
     triggers {
@@ -38,7 +38,7 @@ pipeline {
                     echo "$workspace"
                     /*new hudson.FilePath(new File("$workspace/uusi.txt")).copyFrom(new hudson.FilePath("workspace/testipipeline/uusi.txt"))
                     archiveArtifacts artifacts: 'uusi.txt'*/
-                    archiveArtifacts artifacts: 'testi.txt'
+                    archiveArtifacts artifacts: 'testi'
 
 
 
