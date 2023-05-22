@@ -34,12 +34,12 @@ pipeline {
         stage('Deployment') {
             steps {
                 script {
-                    unstash 'uusi'
+                    unstash 'uusi.txt'
 
                     new hudson.FilePath(new File("$workspace/uusi.txt")).copyFrom('uusi.txt')
                     archiveArtifacts artifacts: 'uusi.txt'
 
-                    
+
 
 
                 
