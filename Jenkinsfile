@@ -35,9 +35,9 @@ pipeline {
             steps {
                 script {
                     unstash 'uusi.txt'
-
-                    new hudson.FilePath(new File("$workspace/uusi.txt")).copyFrom(new hudson.FilePath("workspace/testipipeline/uusi.txt"))
-                    archiveArtifacts artifacts: 'uusi.txt'
+                    echo "$workspace"
+                    /*new hudson.FilePath(new File("$workspace/uusi.txt")).copyFrom(new hudson.FilePath("workspace/testipipeline/uusi.txt"))
+                    archiveArtifacts artifacts: 'uusi.txt'*/
 
 
 
