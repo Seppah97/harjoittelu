@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     unstash 'testi.txt'
-                    readFile("$workspace/testi.txt")
+                    sh "cat $workspace/testi.txt"
                     /*new hudson.FilePath(new File("$workspace/uusi.txt")).copyFrom(new hudson.FilePath("workspace/testipipeline/uusi.txt"))
                     archiveArtifacts artifacts: 'uusi.txt'*/
                     archiveArtifacts artifacts: 'testi.txt'
