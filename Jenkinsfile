@@ -4,8 +4,8 @@ pipeline {
     parameters{
         choice(name: 'Vaihtoehdot', choices: ['Yksi', 'Kaksi', 'Kolme'], description: 'Tämä on vaihtoehtojen testi')
         string(name: 'Nimi', defaultValue: 'Vakionimi', description: 'Aseta tähän nimi')
-        //stashedFile 'testi.txt'
-        file(name: 'testi.txt', description: 'Testausta')
+        stashedFile 'testi.txt'
+        //file(name: 'testi.txt', description: 'Testausta')
     }
 
     triggers {
@@ -35,13 +35,13 @@ pipeline {
         stage('Deployment') {
             steps {
                 script {
-                    /*unstash 'testi.txt'
-                    sh "cat $workspace/testi.txt"*/
+                    unstash 'testi.txt'
+                    sh "cat $workspace/testi.txt"
                     /*new hudson.FilePath(new File("$workspace/uusi.txt")).copyFrom(new hudson.FilePath("workspace/testipipeline/uusi.txt"))
                     archiveArtifacts artifacts: 'uusi.txt'*/
-                    //archiveArtifacts artifacts: 'testi.txt'
+                    archiveArtifacts artifacts: 'testi.txt'
 
-                    archiveArtifacts artifacts: testi.txt
+            
 
                 
                 }
