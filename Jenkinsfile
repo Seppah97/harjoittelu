@@ -53,7 +53,10 @@ pipeline {
         }
 
         stage('Testing') {
-            sh "cat $workspace/testi.txt"
+            steps {
+                sh "cat $workspace/testi.txt"
+            }
+            
         }
     }
     
