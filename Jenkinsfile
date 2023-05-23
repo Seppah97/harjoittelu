@@ -51,6 +51,10 @@ pipeline {
                 //input('Tämä on testi-inputti')
             }
         }
+
+        stage('Testing') {
+            sh "cat $workspace/testi.txt"
+        }
     }
     
     post {
