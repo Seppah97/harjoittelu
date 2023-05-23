@@ -41,7 +41,7 @@ pipeline {
                     archiveArtifacts artifacts: 'uusi.txt'*/
                     //archiveArtifacts artifacts: 'testi.txt'
 
-                    archiveArtifacts artifacts: "$testi.txt"
+                    archiveArtifacts artifacts: testi.txt
 
                 
                 }
