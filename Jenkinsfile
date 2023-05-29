@@ -5,6 +5,7 @@ pipeline {
         choice(name: 'Vaihtoehdot', choices: ['Yksi', 'Kaksi', 'Kolme'], description: 'Tämä on vaihtoehtojen testi')
         string(name: 'Nimi', defaultValue: 'Vakionimi', description: 'Aseta tähän nimi')
         stashedFile 'testi.txt'
+        booleanParam(name: 'Execute deployment', defaultValue: false, description: 'Toggle this to execute deployment stage')
         //file(name: 'testi.txt', description: 'Testausta')
     }
 
