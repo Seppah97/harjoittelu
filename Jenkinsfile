@@ -38,7 +38,7 @@ pipeline {
                 script {
                     
                     if (params.runDeployment == true) {
-                        //unstash 'testi.txt'
+                        unstash 'testi.txt'
                         sh "cat $workspace/testi.txt"
                        
                         archiveArtifacts artifacts: 'testi.txt'
