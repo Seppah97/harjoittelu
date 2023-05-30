@@ -45,7 +45,7 @@ pipeline {
                     }
 
                     else {
-                        sh 'echo This is a test'
+                        sh 'echo Tämä stage on ohitettu'
                     }
                     
 
@@ -72,7 +72,7 @@ pipeline {
         
         always{
             echo 'Tämä on päättynyt'
-            sh "rm -rf $workspace/testi.txt"
+            //sh "rm -rf $workspace/testi.txt"
         }
         
     }
