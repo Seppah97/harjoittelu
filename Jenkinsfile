@@ -67,6 +67,7 @@ pipeline {
                 script{
                     if (params.runTesting == true) {
                         sh "cat $workspace/testi.txt"
+                        echo 'Tämä vaihe suoritettiin'
                     }
 
                     else {
