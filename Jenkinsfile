@@ -36,9 +36,9 @@ pipeline {
         stage('Deployment') {
             steps {
                 script {
-
+                    unstash 'testi.txt'
                     if (params.runDeployment) {
-                        unstash 'testi.txt'
+                        //unstash 'testi.txt'
                         sh "cat $workspace/testi.txt"
                         /*new hudson.FilePath(new File("$workspace/uusi.txt")).copyFrom(new hudson.FilePath("workspace/testipipeline/uusi.txt"))
                         archiveArtifacts artifacts: 'uusi.txt'*/
