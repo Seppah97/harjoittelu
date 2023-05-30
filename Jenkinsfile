@@ -5,7 +5,7 @@ pipeline {
         choice(name: 'Vaihtoehdot', choices: ['Yksi', 'Kaksi', 'Kolme'], description: 'Tämä on vaihtoehtojen testi')
         string(name: 'Nimi', defaultValue: 'Vakionimi', description: 'Aseta tähän nimi')
         stashedFile 'testi.txt'
-        //booleanParam(name: 'runDeployment', defaultValue: false, description: 'Toggle this to execute deployment stage')
+        booleanParam(name: 'runDeployment', defaultValue: false, description: 'Toggle this to execute deployment stage')
         //file(name: 'testi.txt', description: 'Testausta')
     }
 
@@ -36,8 +36,8 @@ pipeline {
         stage('Deployment') {
             steps {
                 script {
-                    unstash 'testi.txt'
-                    /*if (params.runDeployment) {
+                    
+                    if (params.runDeployment == true) {
                         //unstash 'testi.txt'
                         sh "cat $workspace/testi.txt"
                        
@@ -46,7 +46,7 @@ pipeline {
 
                     else {
                         sh 'echo This is a test'
-                    }*/
+                    }
                     
 
             
