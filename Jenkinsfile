@@ -6,6 +6,7 @@ pipeline {
         string(name: 'Nimi', defaultValue: 'Vakionimi', description: 'Aseta tähän nimi')
         stashedFile 'testi.txt'
         booleanParam(name: 'runDeployment', defaultValue: false, description: 'Toggle this to execute deployment stage')
+        booleanParam(name: 'runTesting', defaultValue: false, description: 'Toggle this to execute testing stage')
         //file(name: 'testi.txt', description: 'Testausta')
     }
 
@@ -23,7 +24,7 @@ pipeline {
     }
 
     stages {
-        stage('Test') {
+        stage('Initial') {
             steps {
                 echo SECRET_INPUT
                 sh "chmod +x -R ${env.WORKSPACE}"
@@ -63,7 +64,16 @@ pipeline {
 
         stage('Testing') {
             steps {
-                sh "cat $workspace/testi.txt"
+                script{
+                    if (params.runTesting == true) {
+                        sh "cat $workspace/testi.txt"
+                    }
+
+                    else {
+                        echo 'Tätä vaihetta ei suoriteta'
+                    }
+                }
+                
             }
             
         }
