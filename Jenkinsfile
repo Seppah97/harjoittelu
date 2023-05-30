@@ -30,6 +30,7 @@ pipeline {
                 sh './test.sh'
 
                 sh 'python3 test_my_application.py'
+                unstash 'testi.txt'
             }
         }
 
@@ -38,7 +39,7 @@ pipeline {
                 script {
                     
                     if (params.runDeployment == true) {
-                        unstash 'testi.txt'
+                        
                         sh "cat $workspace/testi.txt"
                        
                         archiveArtifacts artifacts: 'testi.txt'
