@@ -72,6 +72,7 @@ pipeline {
         
         always{
             echo 'Tämä on päättynyt'
+            sh "rm -rf $workspace/testi.txt"
         }
         
     }
