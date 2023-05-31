@@ -5,6 +5,7 @@ pipeline {
         choice(name: 'Vaihtoehdot', choices: ['Yksi', 'Kaksi', 'Kolme'], description: 'Tämä on vaihtoehtojen testi')
         string(name: 'Nimi', defaultValue: 'Vakionimi', description: 'Aseta tähän nimi')
         stashedFile 'testi.txt'
+        stashedFile 'thumbnail.png'
         booleanParam(name: 'runDeployment', defaultValue: false, description: 'Toggle this to execute deployment stage')
         booleanParam(name: 'runTesting', defaultValue: false, description: 'Toggle this to execute testing stage')
         //file(name: 'testi.txt', description: 'Testausta')
@@ -32,6 +33,7 @@ pipeline {
 
                 sh 'python3 test_my_application.py'
                 unstash 'testi.txt'
+                unstash 'thumbnail.png'
             }
         }
 
@@ -41,9 +43,7 @@ pipeline {
                     
                     if (params.runDeployment == true) {
                         
-                        sh "cat $workspace/testi.txt"
-                       
-                        archiveArtifacts artifacts: 'testi.txt'
+                        sh 'python3 test_my_application.py ' + "$workspace/thumbnail.png"
                     }
 
                     else {
