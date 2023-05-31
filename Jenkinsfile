@@ -69,16 +69,18 @@ pipeline {
                     catchError {
 
                         if (params.runTesting == true) {
-                            
+
                             sh "cat $workspace/t.txt"
                             echo 'Tämä vaihe suoritettiin'
+                        }
+
+                        else {
+                            echo 'Tätä vaihetta ei suoriteta'
                         }
                     }
                     
 
-                    else {
-                        echo 'Tätä vaihetta ei suoriteta'
-                    }
+                    
                 }
                 
             }
