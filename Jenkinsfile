@@ -37,9 +37,9 @@ pipeline {
                     /*unstash 'testi.txt'
                     unstash 'thumbnail.png'*/
 
-                    def file = file(params.myTestFile)
+                    File test = new File(params.myTestFile)
 
-                    if (file && file.name.find(/\.png|jpg)$/)) {
+                    if (test && test.name.find(/\.png|jpg)$/)) {
                         echo 'This works'
                     }
                 }
