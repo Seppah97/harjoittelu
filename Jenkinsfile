@@ -36,6 +36,8 @@ pipeline {
                     unstash 'testi.txt'
                     unstash 'thumbnail.png'
 
+                    sh 'printenv'
+
                     File thumbnail_test = new File("$workspace/thumbnail.png")
 
                     if (thumbnail_test.length() == 0) {
