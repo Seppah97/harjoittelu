@@ -38,7 +38,7 @@ pipeline {
 
                     File thumbnail_test = new File("$workspace/thumbnail.png")
 
-                    if (thumbnail_test.size() == 0) {
+                    if (thumbnail_test.length() == 0) {
                         currentBuild.result = 'FAILURE'
                         error "No thumbnail given as parameter"
                     }
