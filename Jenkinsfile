@@ -40,6 +40,7 @@ pipeline {
 
                     if (thumbnail_test.size() == 0) {
                         currentBuild.result = 'FAILURE'
+                        error "No thumbnail given as parameter"
                     }
                 }
                 
