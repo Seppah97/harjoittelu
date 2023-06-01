@@ -37,7 +37,7 @@ pipeline {
                     /*unstash 'testi.txt'
                     unstash 'thumbnail.png'*/
 
-                    File test = new File(params.myTestFile)
+                    File test = new File("$myTestFile")
 
                     if (test && test.name.find(/\.png|jpg)$/)) {
                         echo 'This works'
