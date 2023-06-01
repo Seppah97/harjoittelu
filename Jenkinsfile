@@ -36,7 +36,7 @@ pipeline {
                     unstash 'testi.txt'
                     unstash 'thumbnail.png'
 
-                    File thumbnail_test = new File("$workspace/thumbnail")
+                    File thumbnail_test = new File("$workspace/thumbnail.png")
 
                     if (thumbnail_test.size() == 0) {
                         currentBuild.result = 'FAILURE'
