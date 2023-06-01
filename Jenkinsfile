@@ -4,8 +4,9 @@ pipeline {
     parameters{
         choice(name: 'Vaihtoehdot', choices: ['Yksi', 'Kaksi', 'Kolme'], description: 'Tämä on vaihtoehtojen testi')
         string(name: 'Nimi', defaultValue: 'Vakionimi', description: 'Aseta tähän nimi')
-        stashedFile 'testi.txt'
-        stashedFile 'thumbnail.png'
+        /*stashedFile 'testi.txt'
+        stashedFile 'thumbnail.png'*/¨
+        file(name: 'myTestFile', description: 'Enter a file')
         booleanParam(name: 'runDeployment', defaultValue: false, description: 'Toggle this to execute deployment stage')
         booleanParam(name: 'runTesting', defaultValue: false, description: 'Toggle this to execute testing stage')
         //file(name: 'testi.txt', description: 'Testausta')
@@ -33,14 +34,13 @@ pipeline {
                     sh './test.sh'
 
                     //sh 'python3 test_my_application.py'
-                    unstash 'testi.txt'
-                    unstash 'thumbnail.png'
+                    /*unstash 'testi.txt'
+                    unstash 'thumbnail.png'*/
 
-                    File thumbnail_test = new File("$workspace/thumbnail.png")
+                    def file = file(params.myTestFile)
 
-                    if (thumbnail_test.length() == 0) {
-                        currentBuild.result = 'FAILURE'
-                        error "No thumbnail given as parameter"
+                    if (file && file.name.find(/\.png|jpg)$/)) {
+                        echo 'This works'
                     }
                 }
                 
