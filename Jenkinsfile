@@ -5,7 +5,7 @@ pipeline {
         choice(name: 'Vaihtoehdot', choices: ['Yksi', 'Kaksi', 'Kolme'], description: 'Tämä on vaihtoehtojen testi')
         string(name: 'Nimi', defaultValue: 'Vakionimi', description: 'Aseta tähän nimi')
         /*stashedFile 'testi.txt'
-        stashedFile 'thumbnail.png'*/¨
+        stashedFile 'thumbnail.png'*/
         file(name: 'myTestFile', description: 'Enter a file')
         booleanParam(name: 'runDeployment', defaultValue: false, description: 'Toggle this to execute deployment stage')
         booleanParam(name: 'runTesting', defaultValue: false, description: 'Toggle this to execute testing stage')
