@@ -27,13 +27,22 @@ pipeline {
     stages {
         stage('Initial') {
             steps {
-                echo SECRET_INPUT
-                sh "chmod +x -R ${env.WORKSPACE}"
-                sh './test.sh'
+                script {
+                    echo SECRET_INPUT
+                    sh "chmod +x -R ${env.WORKSPACE}"
+                    sh './test.sh'
 
-                //sh 'python3 test_my_application.py'
-                unstash 'testi.txt'
-                unstash 'thumbnail.png'
+                    //sh 'python3 test_my_application.py'
+                    unstash 'testi.txt'
+                    unstash 'thumbnail.png'
+
+                    File thumbnail_test = new File("$workspace/thumbnail")
+
+                    if (thumbnail_test.size() == 0) {
+                        currentBuild.result = 'FAILURE'
+                    }
+                }
+                
             }
         }
 
