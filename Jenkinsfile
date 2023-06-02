@@ -44,7 +44,7 @@ pipeline {
 
                     echo "${thumbnail}"
 
-                    if (thumbnail_test.length() == 0) {
+                    if ("${thumbnail}" == null) {
                         currentBuild.result = 'FAILURE'
                         error "No thumbnail given as parameter"
                     }
