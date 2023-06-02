@@ -49,10 +49,14 @@ pipeline {
                         error "No thumbnail given as parameter"
                     }
 
-                    if (("${thumbnail}" =~ /.\.(png|jpg)/) == "false") {
+                    test = "${thumbnail}" =~ /\.png/
+
+                    echo "${test}"
+
+                    /*if (("${thumbnail}" =~ /\.(png|jpg)/) == "false") {
                         currentBuild.result = 'FAILURE'
                         error "Thumbnail is wrong format"
-                    }
+                    }*/
 
                 }
                 
