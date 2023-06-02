@@ -40,6 +40,10 @@ pipeline {
 
                     File thumbnail_test = new File("$workspace/thumbnail.png")
 
+                    def thumbnail = "${thumbnail.png_FILENAME}"
+
+                    echo "${thumbnail}"
+
                     if (thumbnail_test.length() == 0) {
                         currentBuild.result = 'FAILURE'
                         error "No thumbnail given as parameter"
