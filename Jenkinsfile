@@ -49,7 +49,7 @@ pipeline {
                         error "No thumbnail given as parameter"
                     }
 
-                    test = "${thumbnail}" =~ /\.png/
+                    assert test = "${thumbnail}" =~ /\.png/
 
                     echo "${test}"
 
