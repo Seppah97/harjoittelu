@@ -40,7 +40,7 @@ pipeline {
 
                     File thumbnail_test = new File("$workspace/thumbnail.png")
 
-                    def thumbnail = "${env.thumbnail\.png_FILENAME}"
+                    def thumbnail = "${env.thumbnail.png_FILENAME}"
 
                     echo "${thumbnail}"
 
