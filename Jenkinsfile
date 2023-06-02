@@ -49,14 +49,11 @@ pipeline {
                         error "No thumbnail given as parameter"
                     }
 
-                    def test = "${thumbnail}" =~ /\.png/
 
-                    assert test
-
-                    /*if (("${thumbnail}" =~ /\.(png|jpg)/) == "false") {
+                    if ("${thumbnail}" =~ /\.png/) {
                         currentBuild.result = 'FAILURE'
                         error "Thumbnail is wrong format"
-                    }*/
+                    }
 
                 }
                 
