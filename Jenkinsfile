@@ -51,7 +51,7 @@ pipeline {
 
                     def test = "${thumbnail}" =~ /\.png/
 
-                    echo "${test}"
+                    assert test
 
                     /*if (("${thumbnail}" =~ /\.(png|jpg)/) == "false") {
                         currentBuild.result = 'FAILURE'
