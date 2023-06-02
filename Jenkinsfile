@@ -49,7 +49,7 @@ pipeline {
                         error "No thumbnail given as parameter"
                     }
 
-                    else if (("${thumbnail}" ==~ /\.(png|jpg)/i) == false) {
+                    else if (("${thumbnail}" ==~ /\.(png|jpg)/) == false) {
                         currentBuild.result = 'FAILURE'
                         error "Thumbnail is wrong format"
                     }
