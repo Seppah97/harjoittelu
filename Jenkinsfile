@@ -38,7 +38,7 @@ pipeline {
 
                     sh 'printenv'
 
-                    File thumbnail_test = new File("$workspace/thumbnail.png")
+                    
 
                     def thumbnail = "${env.'thumbnail.png_FILENAME'}"
 
@@ -48,6 +48,12 @@ pipeline {
                         currentBuild.result = 'FAILURE'
                         error "No thumbnail given as parameter"
                     }
+
+                    else if (("${thumbnail}" ==~ /-([A-Z]+)\.png/) == false) {
+                        currentBuild.result = 'FAILURE'
+                        error "Thumbnail is wrong format"
+                    }
+
                 }
                 
             }
