@@ -50,7 +50,7 @@ pipeline {
                     }
 
 
-                    else if (!("${thumbnail}" =~ /\.(png|jpg)/)) {
+                    else if (!("${thumbnail}" =~ /\.(png|jpg)$/)) {
                         currentBuild.result = 'FAILURE'
                         error "Thumbnail is wrong format"
                     }
