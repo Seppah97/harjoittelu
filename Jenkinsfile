@@ -89,7 +89,7 @@ pipeline {
             steps {
                 script{
 
-                    catchError {
+                    catchError(message: 'This stage failed for some reason. Please check that everything works.', buildResult: 'UNSTABLE') {
 
                         if (params.runTesting == true) {
 
