@@ -89,7 +89,7 @@ pipeline {
             steps {
                 script{
 
-                    catchError(message: 'This stage failed for some reason. Please check that everything works.', buildResult: 'UNSTABLE') {
+                    catchError(message: 'This stage failed for some reason. Please check that everything works.', buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
 
                         if (params.runTesting == true) {
 
@@ -108,6 +108,14 @@ pipeline {
                 
             }
             
+        }
+
+        stage('More testing') {
+            steps{
+                script{
+                    echo 'This prints out, even if previous stage fails.'
+                }
+            }
         }
     }
     
